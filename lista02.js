@@ -30,7 +30,7 @@ Matematicamente, para três segmentos formarem um triângulo, o comprimento de c
 // let l1 = parseInt(prompt("Insira o valor do primeiro segmento:"));
 // let l2 = parseInt(prompt("Insira o valor do segundo segmento:"));
 // let l3 = parseInt(prompt("Insira o valor do terceiro segmento:"));
-// ((l3 < l2+l1) && (l2 < l1+l3) && (l1 < l2+l3)) ? prompt("É possível formar um triângulo.") : prompt("Não é possível formar um triângulo com esses segmentos.");
+// ((l3 < l2+l1) && (l2 < l1+l3) && (l1 < l2+l3)) ? console.log("É possível formar um triângulo.") : console.log("Não é possível formar um triângulo com esses segmentos.");
 
 /*Ex. 5: Crie um jogo de JoKenPo (Pedra-Papel-Tesoura)*/
 
@@ -54,7 +54,8 @@ Matematicamente, para três segmentos formarem um triângulo, o comprimento de c
 // const nErro = () => {
 //     console.log("******************************"); 
 //     console.log("Erro! Escolha um valor válido.");
-//     console.log("******************************"); 
+//     console.log("******************************");
+//     return; 
 // }
 
 // const escolhaModoJogo = (modo) => {
@@ -62,7 +63,7 @@ Matematicamente, para três segmentos formarem um triângulo, o comprimento de c
 
 // menuJ();
 // let escolha = parseInt(prompt("Jogador 1: "));
-// console.log("------------------------------"); 
+// console.log("------------------------------");
 // let escolhaPc = (Math.floor(Math.random()*(3))+1);
 // console.log(`Computador: ${escolhaPc}`);
 // console.log("------------------------------"); 
@@ -119,16 +120,16 @@ Matematicamente, para três segmentos formarem um triângulo, o comprimento de c
 // }
 // menu()
 
-/*Ex. 6: Crie um jogo onde o computador vai sortear um número entre 1 e 5. O jogador vai tentar descobrir qual foi o valor sorteado */      //REVEER
+/*Ex. 6: Crie um jogo onde o computador vai sortear um número entre 1 e 5. O jogador vai tentar descobrir qual foi o valor sorteado */ 
 
 // const nRandom = (Math.floor(Math.random()*5)+1);
-// let cont = 0;
+// let cont = 1;
 
 // do{
 // let guess = parseInt(prompt("Insira um palpite no intervalo de 1 a 5.    Palpite:"));
 
 // if (guess === nRandom){
-//     return console.log(`Parabéns! Você acertou o número correto com ${cont} tentativas.`)    
+//     return console.log(`Parabéns! Você acertou o número correto com ${cont} tentativa(s).`)    
 // } else {
 //     console.log("Você errou! Tente novamente.")
 //     cont++;
@@ -337,7 +338,11 @@ na ordem inversa daquela em que eles foram informados */
 //     nomes[i] = prompt(`Insira o ${j}º nome: `)
 //     j++;
 // }
-// console.log(nomes);
+// console.clear();
+// console.log("Listagem de Nomes:")
+// for(let i=0; i<7; i++) {
+//     console.log(nomes[i]);
+// }
 
 /*Ex. 15: Desenvolva um programa que leia 10 números inteiros e guarde-os em um vetor. No final, mostre quais são os números pares que foram digitados 
 e em que posições eles estão armazenados. */
@@ -967,54 +972,54 @@ das colunas de M. Escrever a matriz e os vetores criados. */
 /*Ex. 31: Escreva um algoritmo que leia um número inteiro A e uma matriz V 30 x 30 de inteiros. Conte quantos valores iguais a A estão na matriz. 
 Crie, a seguir, uma matriz X contendo todos os elementos de V diferentes de A. Mostre os resultados. */
 
-const mPrint = (matriz, linha, coluna) => {
-    for(let i = 0; i < linha; i++){
-        let matrizPrint = "";
-        for(let j = 0; j < coluna; j++){
-            matrizPrint += `${matriz[i][j]}    `
-        }
-        console.log(matrizPrint)
-    }
-}
+// const mPrint = (matriz, linha, coluna) => {
+//     for(let i = 0; i < linha; i++){
+//         let matrizPrint = "";
+//         for(let j = 0; j < coluna; j++){
+//             matrizPrint += `${matriz[i][j]}    `
+//         }
+//         console.log(matrizPrint)
+//     }
+// }
 
-const mFactory = (linha, coluna) => { 
-    let matrizRand = [];
+// const mFactory = (linha, coluna) => { 
+//     let matrizRand = [];
 
-    for(let i = 0; i < linha; i++){
-        matrizRand[i] = [];
-    }
+//     for(let i = 0; i < linha; i++){
+//         matrizRand[i] = [];
+//     }
 
-    for(let i = 0; i < linha; i++){
-        for(let j = 0; j < coluna; j++){
-            matrizRand[i][j] = Math.floor(Math.random()*31)
-        }
-    }
+//     for(let i = 0; i < linha; i++){
+//         for(let j = 0; j < coluna; j++){
+//             matrizRand[i][j] = Math.floor(Math.random()*31)
+//         }
+//     }
 
-    mPrint(matrizRand, linha, coluna)
-    return matrizRand; 
-}
+//     mPrint(matrizRand, linha, coluna)
+//     return matrizRand; 
+// }
 
-let numberA = prompt(`Insira um valor (A) inteiro no intervalo entre 0 e 30       A:`);
-matrizA = mFactory(30, 30)
+// let numberA = prompt(`Insira um valor (A) inteiro no intervalo entre 0 e 30       A:`);
+// matrizA = mFactory(30, 30)
 
-const ocorrenciaA = (matriz, linha, coluna, numberA) => {
-    let matrizSemA = []; 
-    let countA = 0;
+// const ocorrenciaA = (matriz, linha, coluna, numberA) => {
+//     let matrizSemA = []; 
+//     let countA = 0;
 
-    for (let i = 0; i < linha; i++){
-        matrizSemA[i] = [];
-    }
+//     for (let i = 0; i < linha; i++){
+//         matrizSemA[i] = [];
+//     }
 
-    for(let i = 0; i < linha; i++){
-        for(let j = 0; j < coluna; j++){
+//     for(let i = 0; i < linha; i++){
+//         for(let j = 0; j < coluna; j++){
             
-            if(matriz[i][j] == numberA){
-                countA++;
-            }
+//             if(matriz[i][j] == numberA){
+//                 countA++;
+//             }
 
-        }
-    }
-    return countA;
+//         }
+//     }
+//     return countA;
 
-}
-console.log(ocorrenciaA(matrizA, 30, 30, numberA));
+// }
+// console.log(ocorrenciaA(matrizA, 30, 30, numberA));
