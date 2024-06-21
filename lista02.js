@@ -524,7 +524,7 @@ Para homens, calcular o peso ideal usando a fórmula: peso ideal = 72.7 x alt - 
 
 /*Ex. 22: A prefeitura de uma cidade fez uma pesquisa entre os seus habitantes, coletando dados sobre o salário e número de filhos. 
 Faça uma função que leia esses dados para um número não determinado de pessoas e retorne a média de salário da população, a média do número de filhos, 
-o maior salário e o percentual de pessoas com salário até R$ 350,00. */                                                                             //REVEEEEEEEEEEER
+o maior salário e o percentual de pessoas com salário até R$ 350,00. */                                                                             
 
 // pesquisaCidade = function() {
 // const salarios = [];
@@ -576,6 +576,34 @@ o maior salário e o percentual de pessoas com salário até R$ 350,00. */      
 // console.log(`O maior salário registrado: R$ ${resultado.maiorSalario.toFixed(2)}.`);
 // console.log(`Um total de ${resultado.minPercentual}% da população, recebe menos que R$ 350,00.`);
 // console.log(`----------------------------------------------------------------------`);
+
+/* Funções recorrentes usadas nos exercícios abaixo: */
+
+// const mPrint = (matriz, linha, coluna) => {
+//     for(let i = 0; i < linha; i++){
+//         let matrizPrint = "";
+//         for(let j = 0; j < coluna; j++){
+//             matrizPrint += ` ${matriz[i][j]}  `;
+//         }
+//         console.log(matrizPrint)
+//     }
+// }
+
+// const mFactory = (linha, coluna) => { 
+//     let matrizRand = [];
+
+//     for(let i = 0; i < linha; i++){
+//         matrizRand[i] = [];
+//     }
+
+//     for(let i = 0; i < linha; i++){
+//         for(let j = 0; j < coluna; j++){
+//             matrizRand[i][j] = Math.floor(Math.random()*31);
+//         }
+//     }
+
+//     return matrizRand; 
+// }
 
 /*Ex. 23: Criar e imprimir a matriz identidade MI[1..7,1..7] em que todos os elementos da diagonal principal são iguais a 1 e os demais são nulos. */
 
@@ -646,6 +674,7 @@ o maior salário e o percentual de pessoas com salário até R$ 350,00. */      
 // contaNegativosM();
 
 /*Ex. 25: Faça um algoritmo que leia uma matriz de 15 X 20 de números reais e mostre a soma de cada coluna separadamente. */
+
 
 // factoryM = function(linha, coluna) {
     
@@ -976,7 +1005,7 @@ Crie, a seguir, uma matriz X contendo todos os elementos de V diferentes de A. M
 //     for(let i = 0; i < linha; i++){
 //         let matrizPrint = "";
 //         for(let j = 0; j < coluna; j++){
-//             matrizPrint += `${matriz[i][j]}    `
+//             matrizPrint += ` ${matriz[i][j]}  `;
 //         }
 //         console.log(matrizPrint)
 //     }
@@ -991,7 +1020,7 @@ Crie, a seguir, uma matriz X contendo todos os elementos de V diferentes de A. M
 
 //     for(let i = 0; i < linha; i++){
 //         for(let j = 0; j < coluna; j++){
-//             matrizRand[i][j] = Math.floor(Math.random()*31)
+//             matrizRand[i][j] = Math.floor(Math.random()*31);
 //         }
 //     }
 
@@ -999,27 +1028,269 @@ Crie, a seguir, uma matriz X contendo todos os elementos de V diferentes de A. M
 //     return matrizRand; 
 // }
 
-// let numberA = prompt(`Insira um valor (A) inteiro no intervalo entre 0 e 30       A:`);
+// let numberA = parseInt(prompt(`Insira um valor (A) inteiro no intervalo entre 0 e 30       A:`));
 // matrizA = mFactory(30, 30)
 
 // const ocorrenciaA = (matriz, linha, coluna, numberA) => {
-//     let matrizSemA = []; 
 //     let countA = 0;
+//     let matrizSemA = [];
 
-//     for (let i = 0; i < linha; i++){
+//     for(let i = 0; i < linha; i++){
 //         matrizSemA[i] = [];
+
+//         for(let j = 0; j < coluna; j++){
+            
+//             if(matriz[i][j] === numberA){
+//                 countA++;
+//                 matrizSemA[i].push("[ ]")
+//             } else {
+//                 matrizSemA[i].push(matriz[i][j]);
+//             }
+//         }
 //     }
+//     mPrint(matrizSemA, matrizSemA.length, matrizSemA[0].length);
+//     return countA;
+// }
+// console.log("-----------------------------------------------------------------------------------------------");
+// console.log();
+// console.log(`Nova Matriz sem o elemento ${numberA}:`);
+// console.log(ocorrenciaA(matrizA, 30, 30, numberA));
+
+/*Ex. 32: Escrever um algoritmo que lê uma matriz M(12,13) e divida todos os 13 elementos de cada uma das 12 linhas de M pelo maior elemento em módulo daquela linha.
+Escrever a matriz lida e a modificada. */
+
+// const mPrint = (matriz, linha, coluna) => {
+//     for(let i = 0; i < linha; i++){
+//         let matrizPrint = "";
+//         for(let j = 0; j < coluna; j++){
+//             matrizPrint += `${matriz[i][j]}  `
+//         }
+//         console.log(matrizPrint)
+//     }
+// };
+
+// const mFactory = (linha, coluna) => {
+//     let matrizRand = [];
+    
+//     for(let i = 0; i < linha; i++) {
+//         matrizRand[i]= [];
+//     }    
 
 //     for(let i = 0; i < linha; i++){
 //         for(let j = 0; j < coluna; j++){
-            
-//             if(matriz[i][j] == numberA){
-//                 countA++;
-//             }
-
+//             matrizRand[i][j] = (Math.floor(Math.random()*(150)-50))
 //         }
 //     }
-//     return countA;
+//     mPrint(matrizRand, linha, coluna);
+//     return(matrizRand);
+// };
 
+// const maiorN = (linha) => {
+
+// let maiorN = Math.abs(linha[0]);
+
+//     for(let i = 0; i < linha.length; i++){ 
+//         let atualN = Math.abs(linha[i]);
+//         if(atualN > maiorN) {
+//             maiorN = atualN
+//         }
+//     }
+//     return maiorN;
 // }
-// console.log(ocorrenciaA(matrizA, 30, 30, numberA));
+
+// const divMaiorN = (linha, maiorN) => {
+//     let linhaDivMaiorN = []
+
+//     for(let i = 0; i < linha.length; i++){
+//         linhaDivMaiorN[i] = (linha[i]/maiorN).toFixed(2); 
+//     }
+//     return linhaDivMaiorN;
+// }
+
+// console.log("Matriz original: ");
+// let matrizM = mFactory(12, 13);
+// console.log();
+
+// console.log("Matriz dividida pelo maior módulo da linha: ");
+// let matrizMod = [];
+// for(let i = 0; i < matrizM.length; i++){
+//     let moduloMaior = maiorN(matrizM[i]);
+//     matrizMod[i] = divMaiorN(matrizM[i], moduloMaior);
+// }
+// mPrint(matrizMod, 12, 13);
+
+/*Ex. 33: Faça um algoritmo que leia uma matriz 3 x 3 e após a leitura, multiplique os elementos da diagonal principal com a média dos elementos da diagonal secundária. */
+
+// const mQFactory = (ordem) => {
+//     let matrizRand = [];
+
+//     for(let i = 0; i < ordem; i++){
+//         matrizRand[i] = [];
+//     }
+
+//     for(let i = 0; i < ordem; i++){
+//         for(let j = 0; j < ordem; j++){
+//             matrizRand[i][j] = Math.floor(Math.random()*10)
+//         }
+//     }
+//     return matrizRand;
+// }
+
+// const mPrint = (matriz, ordem) => {
+      
+//     for(let i = 0; i < ordem; i++){
+//         let matrizPrint = "";
+//         for(let j = 0; j < ordem; j++){
+//             matrizPrint += `${matriz[i][j]}  `;
+//         }
+//         console.log(matrizPrint);
+//     }
+// }
+
+// const mediaDS = (matriz, ordem) => {
+//     let totSec = 0;
+//     let mediaSec = 0;
+//     for(let i = 0; i < ordem; i++){
+//         for(let j = 0; j < ordem; j++){
+//             if(((i+1)+(j+1))===(ordem+1))
+//                 totSec += matriz[i][j];
+//         }
+//     }
+//     mediaSec = (totSec/ordem).toFixed(2);
+//     return mediaSec;
+// }
+
+// const multDPporDS = (matriz, ordem, ds) => {
+//     let matrizMulti = []
+
+//     for(let i = 0; i < ordem; i++){
+//         matrizMulti[i] = [];
+//     }
+
+//     for(let i = 0; i < ordem; i++){
+//         for(let j = 0; j < ordem; j++){
+//             if(i===j){
+//                 matrizMulti[i].push((ds)*matriz[i][j]);
+//             } else {
+//                 matrizMulti[i].push(matriz[i][j])
+//             }
+//         }
+//     }
+//     return matrizMulti;
+// }
+
+// console.log(`Matriz:`)
+// matrizA = mQFactory(3);
+// mPrint(matrizA, 3);
+// console.log()
+// ds = mediaDS(matrizA, 3);
+// console.log(`Média da diagonal secundária: ${ds}`)
+// console.log()
+
+// matrizB = multDPporDS(matrizA, 3, ds);
+// mPrint(matrizB, 3)
+
+/*Ex. 34: Faça um algoritmo que leia uma matriz 50 x 50 de números reais. A seguir, multiplique cada linha pelo elemento da diagonal principal daquela linha. Mostre a matriz após as multiplicações. */
+
+// const mQFactory = (ordem) => {
+//     let matrizRand = [];
+
+//     for(let i = 0; i < ordem; i++){
+//         matrizRand[i]=[];
+//     }
+
+//     for(let i = 0; i < ordem; i++){
+//         for(let j = 0; j < ordem; j++){
+//             matrizRand[i][j] = Math.floor(Math.random()*51)
+//         }
+//     }
+//     return matrizRand;
+// }
+
+// const mPrint = (matriz, ordem) => {
+
+//     for(let i = 0; i < ordem; i++){
+//         let printM = "";
+//         for(let j = 0; j < ordem; j++){ 
+//             printM += `${matriz[i][j]}  `;
+//         }
+//      console.log(printM)
+//     }        
+// }
+
+// const diagPrincipal = (matriz, ordem) => {
+//     let dp = [];
+
+//     for(let i = 0; i < ordem; i++){
+//         for(let j = 0; j < ordem; j++){
+//             if(i===j){
+//                 dp.push(matriz[i][j])
+//             }
+//         }
+//     }
+//     return dp;
+// }
+
+// const dpMultMatriz = (matriz, ordem, dp) => {
+//     let matrizMult = [];
+    
+//     for(let i = 0; i < ordem; i++){
+//         matrizMult[i] = [];
+//     }
+
+//     for(let i = 0; i < ordem; i++){
+//         for(let j = 0; j < ordem; j++){
+//             matrizMult[i].push((matriz[i][j])*(dp[i]));
+//         }
+//     }
+//     return matrizMult;
+// }
+
+// matrizA = mQFactory(5, 5);
+// console.log("Matriz Principal:")
+// mPrint(matrizA, 5);
+// dp = diagPrincipal(matrizA, 5)
+// console.log(`Valores da Diagonal Principal: ${dp}`)
+
+// console.log("Matriz com linhas multiplicadas pelos valores da Diagonal Principal:")
+// matrizB = dpMultMatriz(matrizA, 5, dp);
+// mPrint(matrizB, 5);
+
+/*Ex. 35: Elaborar um algoritmo que leia um conjunto de 30 valores e os coloca em 2 vetores conforme forem pares ou ímpares. O tamanho do vetor é de 5 posições. Se algum vetor estiver cheio, escrevê-lo. Terminada a leitura, escrever o conteúdo dos dois vetores. Cada vetor pode ser preenchido quantas vezes forem necessárias. */
+
+// let parV = [];
+// let imparV = [];
+// let valores =[];
+
+// const printV = (vetor, tipo, status) => {
+//     console.log(`Vetor ${tipo} ${status}: [${vetor}]`)
+// }
+
+// for(let i = 0; i < 30; i++){
+//     valores.push(prompt(`Insira o ${i+1}º valor: `));
+// }    
+// console.clear();
+// console.log(`Conjunto de valores: [${valores}]`)
+
+//     for(let i = 0; i < valores.length; i++){
+//         if(valores[i]%2===0){
+//             parV.push(valores[i]);
+//             if(parV.length === 5){
+//                 printV(parV, "par", "cheio")
+//                 parV = [];}
+//         } else {
+//             imparV.push(valores[i]);
+//             if(imparV.length === 5){
+//                 printV(imparV, "impar", "cheio")
+//                 imparV = [];}
+//         }
+//     }
+
+//     if (parV.length > 0) {
+//         printV(parV, "par", "incompleto");
+//     }
+//     if (imparV.length > 0) {
+//         printV(imparV, "impar", "incompleto");
+//     }
+
+/*Ex. 36: Escreva um algoritmo que leia um vetor de 13 elementos inteiros, que é o Gabarito de um teste da loteria esportiva. Leia, a seguir, para cada um dos 100 apostadores, o número do seu cartão e um vetor de Respostas de 13 posições. Verifique para cada apostador o número de acertos, comparando o vetor de Gabarito com o vetor de Respostas. Escreva o número do apostador e o número de acertos. Se o apostador tiver 13 acertos, mostrar a mensagem "Parabéns, tu foi o GANHADOR". */
