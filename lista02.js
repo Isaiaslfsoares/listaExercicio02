@@ -1294,3 +1294,547 @@ Escrever a matriz lida e a modificada. */
 //     }
 
 /*Ex. 36: Escreva um algoritmo que leia um vetor de 13 elementos inteiros, que é o Gabarito de um teste da loteria esportiva. Leia, a seguir, para cada um dos 100 apostadores, o número do seu cartão e um vetor de Respostas de 13 posições. Verifique para cada apostador o número de acertos, comparando o vetor de Gabarito com o vetor de Respostas. Escreva o número do apostador e o número de acertos. Se o apostador tiver 13 acertos, mostrar a mensagem "Parabéns, tu foi o GANHADOR". */
+
+// const gabarito = () => {
+//     let valor = 0;
+//     let valores = [];
+
+//     for(let i = 0; i < 13; i++){
+//         valor = parseInt(prompt(`Insira o ${i+1}º número sorteado (Intervalo entre 0 e 60): `));
+//             if(!valores.includes(valor)){
+//                 valores.push(valor);
+//             } else {
+//                 console.log("Valor já cadastrado!");
+//                 i--;
+//             }
+//     }
+//     return valores;
+// }
+
+// const betFactory = () => {
+//     let bet = new Set();
+//     while(bet.size < 13) {
+//         bet.add(Math.floor(Math.random()*61));
+//     }
+//     return Array.from(bet);
+// }
+
+// const compareApostas = () => {
+    
+//    const gabaritoN = gabarito();
+//    console.log(`Gabarito: ${gabaritoN}`)
+
+//    for(let i = 0; i < 100; i++){
+//        const aposta = betFactory();
+//        console.log(`Aposta do ${i+1}º: ${aposta}`);
+//        let hit = 0;
+                
+//         aposta.forEach(numero => {
+//             if(gabaritoN.includes(numero)){
+//                 hit++;
+//             }
+//         });
+
+//         console.log(`${i+1}º apostador: ${hit} acertos.`)
+//         if(hit === 13){
+//             console.log("*******Parabéns, você ganhou!**********")
+//         }
+//     }
+// }
+// compareApostas();
+
+/*Ex.37: Escreva um algoritmo que leia um vetor G de 20 elementos caractere que representa o gabarito de uma prova. A seguir, para cada um dos 50 alunos da turma, leia o vetor de respostas (R) do aluno e conte o número de acertos. Mostre o número de acertos do aluno e uma mensagem “APROVADO” se a quantidade de acertos for maior ou igual a 12; e mostre uma mensagem de “REPROVADO”, caso contrário. */
+
+// const gabarito = () => {
+//     let gabaritoG = [];
+//     for(let i = 0; i < 20; i++){
+//         gabaritoG.push(prompt(`Insira a ${i+1} resposta (a, b, c, d ou e):`))
+//     }
+//     return gabaritoG
+// }
+
+// const letraRand = () => {
+//     const opcoes = "abcde";
+//     const opcaoRand = Math.floor(Math.random()*5);
+//     return opcoes[opcaoRand];
+// }
+
+// const respostasFactory = () => {
+//     let resposta = [];
+//     for(let i = 0; i < 20; i++){
+//         resposta.push(letraRand())
+//     }
+//     return resposta;
+// }
+
+// const resolucao = () => {
+    
+//     let gabaritoOf = gabarito();
+//     console.log(`Gabarito: ${gabaritoOf}`)
+    
+//     for(let i = 0; i < 50; i++){
+//         respostaV = respostasFactory();
+//         console.log(`Resposta do aluno ${i+1}: ${respostaV}`)
+        
+//         let acertos = 0;
+//         respostaV.forEach((elemento, index) => {
+//             if(elemento === gabaritoOf[index])
+//                 acertos++;
+//         });
+
+//         console.log(`Aluno ${i+1}: ${acertos} acertos.`)
+//         if(acertos >= 12){
+//             console.log(`Aluno ${i+1}: APROVADO`);
+//         } else {
+//             console.log(`Aluno ${i+1}: REPROVADO`);
+//         }
+//     }
+// }
+
+// resolucao();
+
+/*Ex. 38: Elabore um algoritmo que leia um vetor de 6 posições e após sua leitura leia outra variável identificadora que calcule a operação conforme a informação contida nesta variável:
+1- soma dos elementos;
+2- produto dos elementos;
+3- média dos elementos;
+4- ordene os elementos em ordem crescente;
+5- mostre o vetor.
+ */
+
+// const vFactory = () => {
+//     let vetor = [];
+//     for(let i = 0; i < 6; i++){
+//         vetor.push(parseInt(prompt(`Insira o ${i+1}º elemento do vetor: `)))
+//     }
+//     console.log(`Vetor de entrada: [${vetor}]`);
+//     return vetor;
+// }
+
+// const menu = () => {
+//     console.log("------OPERAÇÕES------\n1- soma dos elementos;\n2- produto dos elementos;\n3- média dos elementos;\n4- ordene os elementos em ordem crescente;\n5- mostre o vetor.")
+//     console.log("---------------------")
+//     let escolha = parseInt(prompt(`Escolha uma das operações acima através do índice de 1 a 5:`))
+//     return escolha;
+// }
+
+// const operacoes = (indice, vetor) => {
+    
+//     let resultado;
+//     switch (indice) {
+
+//         case 1:
+//             resultado = 0;
+//             vetor.forEach(elemento => {
+//                 resultado += elemento;
+//             });
+//             return resultado;
+               
+//         case 2:
+//             resultado = 1;
+//             vetor.forEach(elemento => {
+//                 resultado *= elemento;
+//             }) 
+//             return resultado;
+        
+//         case 3:
+//             soma = 0;
+//             vetor.forEach(elemento => {
+//                 soma += elemento;
+//             })
+//             resultado = (soma/vetor.length);
+//             return resultado;
+        
+//         case 4:
+//             resultado = vetor.sort((a, b) => a -b);
+//             return resultado;
+        
+//         case 5:
+//             return console.log(`Vetor: [${vetor}]`);
+                
+//         default:
+//             return "Insira um índice válido.";
+//     }
+// }
+
+// let vetorV = vFactory();
+// let indice = menu();
+// let resultFim = operacoes(indice, vetorV);
+
+//     if(resultFim !== null){
+//         if(indice !== 5) {
+//             console.log(`Resultado da operação: ${resultFim}`);
+//         }
+
+//     } else {
+    //         console.log(resultFim);
+    //     }
+    
+/*Ex. 39: Faça um algoritmo que leia um vetor (A) de 100 posições. Em seguida, compacte o vetor, retirando os valores nulos e negativos. Coloque o resultado no vetor B.  */
+
+// const vFactory = () => {
+//     // let entrada = prompt("Insira 100 elementos separados por vírgulas:");
+//     // let vetor = entrada.split(',').map(Number);
+                    //auto
+//     let vetor = [];    
+//     for(let i = 0; i < 20; i++){
+//         vetor.push(Math.floor(Math.random()*150)-100)
+//     }
+    
+//     console.log(`Vetor de entrada: [${vetor}]`);
+//     return vetor;
+// }
+
+// const vCompress = () => {
+//     let vetorA = vFactory();
+//     let vetorB = [];
+//     vetorA.forEach(numero => {
+//         if((numero > 0) && (numero !== null))
+//             vetorB.push(numero);
+//     })
+//     console.log();
+//     console.log(`VetorB compactado: [${vetorB}].`)
+//     return vetorB
+// }
+
+// vCompress();
+
+
+/*Ex. 40: Faça um algoritmo que leia um vetor de 5 elementos inteiros, correspondentes ao resultado oficial da Loto. A seguir, leia 50 conjuntos de vetores (com 5 elementos inteiros cada), representando as apostas feitas. Compare os números das apostas com o resultado oficial e mostre uma mensagem ("Ganhador") se todos os números
+corresponderem ao resultado oficial. (Observação: não é necessário procurar por ternos e quadras, apenas por quinas.) */
+
+// const vFactory = () => {
+//     let bet = new Set();
+//     while (bet.size < 5){
+//         bet.add(Math.floor(Math.random()*61));
+//     }
+//     return Array.from(bet);
+// }
+
+// const gabarito = () => {
+//     let gabarito = [];
+//     for(let i = 0; i < 5; i++){
+//         let valor = parseInt(prompt(`Escreva o ${i+1}º valor sorteado:`));
+//         if(valor !== null) {
+//             gabarito.push(valor);
+//         } else {
+//             console.log("Escreva um valor válido.")
+//         }
+//     }
+//     console.log(`Quinta sorteada: ${gabarito}`);
+//     return gabarito;
+// }
+
+// const checkResult = () => {
+//     const resultado = gabarito ();
+    
+//     for(let i = 0; i < 50; i++){
+//         let aposta = vFactory();
+//         let acertos = 0;
+        
+//         console.log(`Pessoa ${i+1} - Aposta: ${aposta}`)
+        
+//         aposta.forEach(numero => {
+//                 if(resultado.includes(numero)){
+//                 acertos++;
+//             }
+//             });
+//         console.log(`Pessoa ${i+1} - Acertos: ${acertos}`)
+
+//         if(acertos === 5){
+//             console.log("**********PREMIADA!!!**********")
+//         }
+//     }
+// } 
+
+// checkResult();
+
+/*Ex. 41: Dado o objeto pessoa com propriedades nome e idade, acesse e imprima o valor de idade. Adicione uma nova propriedade chamada email ao objeto pessoa que já possui
+nome e idade. */
+
+// let pessoa = {
+//     nome:"Isaias",
+//     idade: 33,
+// }
+// console.log(`A idade de ${pessoa.nome} é ${pessoa.idade} anos.`);
+
+// pessoa.email = "";
+// console.log(pessoa);
+
+/*Ex. 42: Crie um objeto chamado dados que contém várias propriedades, incluindo números, strings e arrays. Escreva uma função que retorne um novo objeto apenas com as
+propriedades que são arrays. */
+
+// let dados = {
+
+//     evento: "Happy Hour",
+//     endereco: "Rua José Maria",
+//     CEP: 99999-99,
+//     convidados: ["João", "Maria", "Carlos", "José", "Joaquim"],
+//     comidas: ["Salada", "Tropeiro", "Arroz", "Frango assado", "maionese"],
+    
+// }
+
+// const filtrarObj = (obj) => {
+//     let novoObj = {};
+
+//     for(let chave in obj) {
+//         if(Array.isArray(obj[chave])){
+//             novoObj[chave] = obj[chave];
+//         }
+//     }
+//     return novoObj;
+// }
+
+// let resultado = filtrarObj(dados);
+// console.log(resultado);
+
+/*Ex. 43: Dado dois objetos, obj1 e obj2, escreva uma função que crie um novo objeto combinando as propriedades de ambos, onde as propriedades de obj2 têm precedência
+sobre as do obj1 em caso de conflitos. */
+
+// let obj1 = {
+    
+//     turma: "2AM",
+//     periodo: "2 Série do Ensino Médio",
+//     alunos: 42,
+//     professor: "Renato"
+
+// }
+
+// let obj2 = {
+
+//     turma: "2AM",
+//     periodo: "2 Série do Ensino Médio",
+//     professor: "Carlos",
+//     alunos: 43,
+
+// }
+
+// const juncaoObj = (obj1, obj2) => {
+//     let juncao = {};
+
+//     for(let chave in obj1){
+//         juncao[chave] = obj1[chave];
+//     }
+
+//     for(let chave in obj2){
+//         juncao[chave] = obj2[chave];
+//     }
+
+//     return juncao
+// }
+
+// let resultado = juncaoObj(obj1, obj2);
+// console.log(resultado);
+
+/*Ex. 44: Escreva uma função que conte quantas propriedades do tipo string existem em um objeto e retorne esse número. */
+
+// let obj = { 
+
+//     escola: "Colegio Maria",
+//     turmas: ['1AM', '1BM', '1CM', '2AM', '2BM', '3AM'],
+//     professores: ['Carlos', 'Jose', 'Renato', 'Marcia', 'Carol'],
+//     direcao: "Eloa (direcao) e Monica (vice)",
+//     alunos: 520,
+//     concursados: 14,
+//     terceirizados: 25
+
+// }
+
+// const propCont = (obj) => {
+//     let stringT = 0; 
+
+//     for(chave in obj){
+
+//         if (typeof (obj[chave]) === 'string'){
+//             stringT++;
+//         }
+//     }
+
+//     return stringT;
+// }
+
+// let resultado = propCont(obj);
+// console.log(`O objeto analisado apresenta ${resultado} propriedades do tipo string`);
+
+/*Ex. 45: Dado um array de strings, crie um objeto onde cada string é uma chave, e seu valor é o número de vezes que a string aparece no array. */
+
+// let arrayS = ['Bom dia', 'Boa tarde', 'Boa noite', 'Boa sorte', 'Bom dia', 'Boa tarde', 'Boa noite', 'Boa sorte','Bom dia', 'Boa tarde', 'Boa noite', 'Boa sorte', 'Bom dia', 'Boa tarde', 'Bom dia', 'Boa tarde', 'Boa sorte','Bom dia', 'Boa sorte','Bom dia' ];
+
+// const oFactory = (arr) => {
+//     let obj = {};
+    
+//     for(let i = 0; i < arr.length; i++){
+//         let stringA = arr[i];
+//         if(obj[stringA]) {
+//             obj[stringA]++;          
+//         } else {
+//             obj[stringA] = 1;
+//         }
+//     }
+//     return obj
+// }
+
+// let resultado = oFactory(arrayS);
+// console.log(resultado);
+
+/*Ex. 46: Suponha que você tem um array de objetos onde cada objeto representa uma venda com vendedor e valor. Escreva uma função que retorne um objeto que sumarize o total de vendas por vendedor. */
+
+// const vendaTot = (arr) => {
+//     let objTotal = {};
+    
+//     for(let i = 0; i < arr.length; i++){
+//         let venda = arr[i];
+//         let vendedor = venda.vendedor;
+//         let valor = venda.valor;
+        
+//         if(objTotal[vendedor]) {
+//             objTotal[vendedor] += valor;
+//         } else {
+//             objTotal[vendedor] = valor;
+//         }
+//     }
+//     return objTotal;
+// };
+    
+// let arr = [
+//     {venda: 'tenis', vendedor: 'Adão', valor: 150.00},
+//     {venda: 'camisa', vendedor: 'Bruno', valor: 50.00},
+//     {venda: 'tenis', vendedor: 'Bruno', valor: 350.00},
+//     {venda: 'calça', vendedor: 'Adão', valor: 150.00},
+//     {venda: 'meia', vendedor: 'Adão', valor: 40.00}
+//     ];
+    
+// let resultado = vendaTot(arr);
+// console.log(resultado)
+
+/*Ex. 47: Crie uma função que transforme um objeto de entrada aplicando uma função fornecida a cada uma das propriedades do objeto, retornando um novo objeto com os
+resultados. */
+
+// obj1 = {
+//     a: 2,
+//     b: 3,
+//     c: 5,
+//     d: 15,
+//     e: 28
+// }
+
+// const duplicacao = (valor) => {
+//     return valor*2
+// }
+
+// const operacaoObj = (obj, funcao) => {
+//     let obj2 = {};
+           
+//     for(let chave in obj){
+//          if(obj[chave]){
+//             obj2[chave] = funcao(obj[chave]);
+//          }
+//     }
+
+//     return obj2;
+// };
+
+// let resultado = operacaoObj(obj1, duplicacao);
+// console.log(resultado);
+
+/*Ex. 48: Você recebe dois objetos que representam o inventário de duas lojas diferentes: inventarioLojaA e inventarioLojaB. Cada chave é um item, e o valor é a quantidade desse item em estoque. Escreva uma função que combine os inventários em um único objeto. Se um item aparecer em ambas as lojas, some as quantidades. */
+
+// let inventarioLojaA = {
+//     balao: 100,
+//     guarnanapo: 98,
+//     vela: 130,
+//     confete: 345,
+//     formaBrigadeiro: 145,
+//     copoTematico: 230,
+//     boloFalso: 50,
+//     kitPintura: 20,
+//     luzLed: 123
+// }
+
+// let inventarioLojaB = {
+
+//     balao: 390,
+//     guarnanapo: 45,
+//     formaBrigadeiro: 32,
+//     copoTematico: 90,
+//     boloFalso: 0,
+//     kitPintura: 90,
+//     luzLed: 12
+
+// }
+
+// const somaInventario = (obj1, obj2) => {
+//     let inventarioSoma = {};
+
+//     for(let item in obj1){
+//         inventarioSoma[item] = obj1[item];
+//     }
+
+//     for(let item in obj2) {
+//         if(obj2[item]){
+//             if(inventarioSoma[item]){
+//                 inventarioSoma[item] += obj2[item];
+//             } else {
+//                 inventarioSoma[item] = obj2[item];
+//             }
+//         }
+//     }
+//     return inventarioSoma;
+// }
+// let resultado = somaInventario(inventarioLojaA, inventarioLojaB);
+// console.log(resultado)
+
+/*Ex. 49: Você recebe um array de objetos representando transações financeiras. Cada transação possui id, valor, data, e categoria. Escreva uma função que retorne um objeto onde as chaves são as categorias, e os valores são arrays de transações pertencentes a essa categoria. Adicionalmente, inclua um subtotal de valores por categoria. */
+
+// let transacoesFin = [
+//     {id: 1, valor: 1000, data: "20/06/2024", categoria: "insumos"},
+//     {id: 2, valor: 485, data: "20/06/2024", categoria: "insumos"},
+//     {id: 3, valor: 442, data: "20/06/2024", categoria: "consumiveis"},
+//     {id: 4, valor: 1020, data: "20/06/2024", categoria: "insumos"},
+//     {id: 5, valor: 1854, data: "20/06/2024", categoria: "consumiveis"},
+//     {id: 6, valor: 10000, data: "20/06/2024", categoria: "aluguel"},
+//     {id: 7, valor: 1520, data: "20/06/2024", categoria: "pessoal"}
+// ];
+
+// const objFin = (arr) => {
+//     let financeiro = {}
+
+//     for(let i = 0; i < arr.length; i++){
+//         let transacao = arr[i];
+//         let categoria = transacao.categoria;
+//         let valor = transacao.valor;
+
+//         if(!financeiro[categoria]) {
+//             financeiro[categoria] = { transacoes: [], subtotal: 0};
+//         } 
+
+//             financeiro[categoria].transacoes.push(transacao);
+//             financeiro[categoria].subtotal += valor;
+
+//     }
+//     return financeiro;
+// };
+
+// let resultado = objFin(transacoesFin);
+// console.log(resultado);
+
+/*Ex. 50: Desenvolva um pequeno sistema de reserva de hotéis usando JavaScript. O sistema deverá ser capaz de interagir com o usuário através do console do navegador e manter um registro das reservas e hotéis disponíveis. Utilize objetos e arrays para gerenciar as informações. Não é necessário interface gráfica, apenas funcionalidade lógica. 
+
+        1. Estrutura de Dados:
+○ Hotel: Cada hotel deve ser um objeto com propriedades para id, nome, cidade, quartos totais e quartos disponiveis.
+○ Reservas: Cada reserva deve ser um objeto contendo idReserva, idHotel, e nomeCliente.
+        2. Funcionalidades:
+○ Adicionar hotéis: Permitir que o usuário adicione novos hotéis ao sistema.
+○ Buscar hotéis por cidade: Permitir que o usuário liste todos os hotéis disponíveis em uma cidade específica.
+○ Fazer reserva: Permitir que um usuário faça uma reserva em um hotel. Isso deve diminuir o número de quartos disponiveis do hotel.
+○ Cancelar reserva: Permitir que um usuário cancele uma reserva. Isso deve aumentar o número de quartos disponiveis no hotel correspondente.
+○ Listar reservas: Mostrar todas as reservas, incluindo detalhes do hotel e do cliente.
+        3. Regras de Negócio:
+○ Um hotel só pode aceitar reservas se houver quartos disponíveis.
+○ As reservas devem ser identificadas por um ID único e associadas a um único hotel.
+        4. Desafios Adicionais (Opcionais):
+○ Implementar uma função de check-in e check-out que atualize a disponibilidade de quartos.
+○ Gerar relatórios de ocupação para um hotel.
+○ Permitir que o usuário avalie o hotel após a estadia, e armazenar essas avaliações dentro do objeto do hotel.
+
+*/
+
