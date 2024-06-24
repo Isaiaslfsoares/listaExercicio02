@@ -7,12 +7,12 @@
 
 A biblioteca `prompt-sync`foi a escolhida pois permite que você leia entrada do usuário de forma síncrona no Node.js.
 
-1. Para instalar o prompt-sync, você precisa ter o Node.js instalado no seu sistema. Se ainda não tiver o Node.js instalado, faça o download e a instalação a partir do site oficial do Node.js.
+1. Para instalar o prompt-sync, você precisa ter o Node.js instalado no seu sistema. Se ainda não tiver o Node.js instalado, faça o download e a instalação a partir do site oficial do [Node.js](https://nodejs.org/en).
 2. Depois de ter o Node.js instalado, abra o terminal e navegue até o diretório do seu projeto.
 3. Execute o seguinte comando para instalar o prompt-sync usando npm (Node Package Manager):
-            > `npm install prompt-sync`
+> `npm install prompt-sync`
 
 ## Executando os exercícios: 
 
 Para executar os exercícios basta chamar a função do arquivo no terminal: 
-            > `node lista02.js` 
+> `node lista02.js` 
